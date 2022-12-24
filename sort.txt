@@ -1,0 +1,44 @@
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+int i,arr1[25],arr2[25],a1size,a2size;
+int merge[50],msize,j,swap;
+clrscr();
+printf("Enter the size of array 1 : ");
+scanf("%d",&a1size);
+printf("Enter the size of array 2 : ");
+scanf("%d",&a2size);
+for (i=0;i<a1size;i++)
+	{
+		printf("Enter arr1[%d] = ",i);
+		scanf("%d",&arr1[i]);
+	}
+for (i=0;i<a2size;i++)
+	{
+		printf("Enter arr2[%d] = ",i);
+		scanf("%d",&arr2[i]);
+	}
+msize=a1size+a2size;
+for (i=0;i<a1size;i++)
+	{
+		merge[i]=arr1[i];
+	}
+for (i=0,j=a1size;i<a2size,j<msize;j++,i++)
+	{
+		merge[j]=arr2[i];
+	}
+for (i=0;i<msize-1;i++)
+	{
+		for (j=0;j<msize-i-1;j++)
+			{
+				if (merge[j] > merge[j+1])
+					{
+						swap=merge[j];
+						merge[j]=merge[j+1];
+						merge[j+1]=swap;
+					}
+			}
+	}
+getch();
+}
